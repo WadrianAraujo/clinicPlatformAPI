@@ -29,7 +29,7 @@ public class Doctor {
 
     public Doctor(DataDoctorRegister data) {
         this.nome = data.nome();
-        this.email = data.email()
+        this.email = data.email();
 
     }
 }
