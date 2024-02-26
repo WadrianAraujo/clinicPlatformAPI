@@ -14,7 +14,7 @@
 	<name>clinicPlatformAPI</name>
 	<description>API rest of Clinic platform</description>
 	<properties>
-		<java.version>21</java.version>
+		<java.version>17</java.version>
 	</properties>
 	<dependencies>
 		<dependency>
