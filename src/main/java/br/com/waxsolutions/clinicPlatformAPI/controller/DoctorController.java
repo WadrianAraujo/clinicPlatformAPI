@@ -1,9 +1,6 @@
 package br.com.waxsolutions.clinicPlatformAPI.controller;
 
-import br.com.waxsolutions.clinicPlatformAPI.doctor.DTODoctorRegister;
-import br.com.waxsolutions.clinicPlatformAPI.doctor.DTOListDoctor;
-import br.com.waxsolutions.clinicPlatformAPI.doctor.Doctor;
-import br.com.waxsolutions.clinicPlatformAPI.doctor.DoctorRepository;
+import br.com.waxsolutions.clinicPlatformAPI.doctor.*;
 import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,7 +30,8 @@ public class DoctorController {
 
     @PutMapping
     @Transactional
-    public void update(@RequestBody @Valid DTODoctorRegister data){
-
+    public void update(@RequestBody @Valid DTODoctorUpdate data){
+        var doctor = repository.getReferenceById(data.id());
+        doctor.updateData(data);
     }
 }

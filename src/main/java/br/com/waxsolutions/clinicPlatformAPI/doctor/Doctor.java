@@ -20,6 +20,7 @@ public class Doctor {
     private String nome;
     private String email;
     private String crm;
+    private String telefone;
 
     @Enumerated(EnumType.STRING)
     private Specialty especialidade;
@@ -31,7 +32,21 @@ public class Doctor {
         this.nome = data.nome();
         this.email = data.email();
         this.crm = data.crm();
+        this.telefone = data.numero();
         this.endereco = new Address(data.endereco());
         this.especialidade = data.especialidade();
+    }
+
+    public void updateData(DTODoctorUpdate data){
+        if (data.nome() != null){
+            this.nome = data.nome();
+        }
+
+        if (data.telefone() != null){
+            this.telefone = data.telefone();
+        }
+        if (data.endereco() != null){
+            this.endereco.updateInfo(data.endereco());
+        }
     }
 }

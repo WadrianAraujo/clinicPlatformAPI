@@ -32,4 +32,18 @@ public class Patient {
         this.telefone = data.telefone();
         this.endereco = new Address(data.endereco());
     }
+
+    public void updateData(DTOPatientUpdate data) {
+        if (data.nome() != null){
+            this.nome = data.nome();
+        }
+
+        if (data.telefone() != null){
+            this.telefone = data.telefone();
+        }
+        if (data.endereco() != null){
+            this.endereco.updateInfo(data.endereco());
+        }
+
+    }
 }
