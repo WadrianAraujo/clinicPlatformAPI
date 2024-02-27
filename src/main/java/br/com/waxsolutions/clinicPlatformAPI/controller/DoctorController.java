@@ -1,13 +1,15 @@
 package br.com.waxsolutions.clinicPlatformAPI.controller;
 
-import br.com.waxsolutions.clinicPlatformAPI.doctor.DataDoctorRegister;
+import br.com.waxsolutions.clinicPlatformAPI.doctor.DTODoctorRegister;
+import br.com.waxsolutions.clinicPlatformAPI.doctor.DTOListDoctor;
 import br.com.waxsolutions.clinicPlatformAPI.doctor.Doctor;
 import br.com.waxsolutions.clinicPlatformAPI.doctor.DoctorRepository;
+import jakarta.transaction.Transactional;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 
 @RestController
@@ -18,9 +20,20 @@ public class DoctorController {
     private DoctorRepository repository;
 
     @PostMapping
-    public void register(@RequestBody DataDoctorRegister data)
+    @Transactional
+    public void register(@RequestBody @Valid DTODoctorRegister data)
     {
         repository.save(new Doctor(data));
     }
 
+    @GetMapping
+    public List<DTOListDoctor> listDoctors(){
+        return repository.findAll().stream().map(DTOListDoctor::new).toList();
+    }
+
+    @PutMapping
+    @Transactional
+    public void update(@RequestBody @Valid DTODoctorRegister data){
+
+    }
 }

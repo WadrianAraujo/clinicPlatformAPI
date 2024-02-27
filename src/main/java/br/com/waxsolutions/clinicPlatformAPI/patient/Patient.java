@@ -1,4 +1,4 @@
-package br.com.waxsolutions.clinicPlatformAPI.doctor;
+package br.com.waxsolutions.clinicPlatformAPI.patient;
 
 import br.com.waxsolutions.clinicPlatformAPI.address.Address;
 import jakarta.persistence.*;
@@ -7,31 +7,29 @@ import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
-@Table(name = "doctors")
-@Entity(name = "Doctor")
+@Table(name = "Patients")
+@Entity(name = "patient")
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode(of = "id")
-public class Doctor {
+public class Patient {
 
-    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     private String nome;
     private String email;
-    private String crm;
-
-    @Enumerated(EnumType.STRING)
-    private Specialty especialidade;
+    private String telefone;
 
     @Embedded
     private Address endereco;
 
-    public Doctor(DTODoctorRegister data) {
+    public Patient(DTOPatientRegister data) {
         this.nome = data.nome();
         this.email = data.email();
-        this.crm = data.crm();
+        this.telefone = data.telefone();
         this.endereco = new Address(data.endereco());
-        this.especialidade = data.especialidade();
     }
 }
