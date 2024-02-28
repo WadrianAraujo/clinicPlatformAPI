@@ -4,6 +4,7 @@ import br.com.waxsolutions.clinicPlatformAPI.address.DataAddress;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 
 public record DTOPatientRegister(
         @NotBlank
@@ -15,7 +16,7 @@ public record DTOPatientRegister(
         String telefone,
         @NotBlank
         String cpf,
-        @NotBlank
+        @NotNull
         @Valid
         DataAddress endereco
 ) {

@@ -16,9 +16,9 @@ public record DTODoctorRegister(
         String numero,
         @NotBlank
         String crm,
-        @NotBlank
+        @NotNull
         Specialty especialidade,
-        @NotBlank
+        @NotNull
         @Valid
         DataAddress endereco
 ) {
