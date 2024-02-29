@@ -8,6 +8,7 @@ import br.com.waxsolutions.clinicPlatformAPI.doctor.DTODoctorUpdate;
 import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -22,27 +23,26 @@ public class DoctorController {
 
     @PostMapping
     @Transactional
-    public void register(@RequestBody @Valid DTODoctorRegister data)
-    {
+    public void register(@RequestBody @Valid DTODoctorRegister data) {
         repository.save(new Doctor(data));
     }
 
     @GetMapping
-    public List<DTOListDoctor> listDoctors(){
+    public List<DTOListDoctor> listDoctors() {
         return repository.findAll().stream().map(DTOListDoctor::new).toList();
     }
 
     @PutMapping
     @Transactional
-    public void update(@RequestBody @Valid DTODoctorUpdate data){
+    public void update(@RequestBody @Valid DTODoctorUpdate data) {
         var doctor = repository.getReferenceById(data.id());
         doctor.updateData(data);
     }
 
     @DeleteMapping("/{id}")
     @Transactional
-    public void delete(@PathVariable Long id){
+    public ResponseEntity delete(@PathVariable Long id) {
         repository.deleteById(id);
-
+        return ResponseEntity.noContent().build();
     }
 }
