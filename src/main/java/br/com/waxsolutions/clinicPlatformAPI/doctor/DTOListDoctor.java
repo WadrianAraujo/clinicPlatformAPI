@@ -1,9 +1,11 @@
 package br.com.waxsolutions.clinicPlatformAPI.doctor;
 
-public record DTOListDoctor(Long id,String nome, String email, String crm, Specialty especialidade) {
+import br.com.waxsolutions.clinicPlatformAPI.address.Address;
 
-    public DTOListDoctor(Doctor doctor){
-        this(doctor.getId(),doctor.getNome(), doctor.getCrm(), doctor.getEmail(), doctor.getEspecialidade());
+public record DTOListDoctor(Long id, String nome, String email, String crm, Specialty especialidade, String phone, Address address) {
+
+    public DTOListDoctor(Doctor doctor) {
+        this(doctor.getId(), doctor.getNome(), doctor.getEmail() ,doctor.getCrm(), doctor.getEspecialidade(), doctor.getTelefone(), doctor.getEndereco());
     }
 
 }
