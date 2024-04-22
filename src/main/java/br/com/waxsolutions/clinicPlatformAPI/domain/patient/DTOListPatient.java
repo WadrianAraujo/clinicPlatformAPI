@@ -1,6 +1,4 @@
-package br.com.waxsolutions.clinicPlatformAPI.patient;
-
-import br.com.waxsolutions.clinicPlatformAPI.doctor.Doctor;
+package br.com.waxsolutions.clinicPlatformAPI.domain.patient;
 
 public record DTOListPatient(Long id,String nome, String email) {
 

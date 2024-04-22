@@ -1,7 +1,8 @@
 package br.com.waxsolutions.clinicPlatformAPI.controller;
 
 
-import br.com.waxsolutions.clinicPlatformAPI.patient.*;
+import br.com.waxsolutions.clinicPlatformAPI.domain.patient.*;
+import br.com.waxsolutions.clinicPlatformAPI.repositories.PatientRepository;
 import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;

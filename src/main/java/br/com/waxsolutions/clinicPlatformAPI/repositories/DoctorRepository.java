@@ -1,5 +1,6 @@
-package br.com.waxsolutions.clinicPlatformAPI.doctor;
+package br.com.waxsolutions.clinicPlatformAPI.repositories;
 
+import br.com.waxsolutions.clinicPlatformAPI.domain.doctor.Doctor;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface DoctorRepository extends JpaRepository<Doctor,Long> {

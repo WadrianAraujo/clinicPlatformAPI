@@ -1,6 +1,6 @@
-package br.com.waxsolutions.clinicPlatformAPI.doctor;
+package br.com.waxsolutions.clinicPlatformAPI.domain.doctor;
 
-import br.com.waxsolutions.clinicPlatformAPI.address.Address;
+import br.com.waxsolutions.clinicPlatformAPI.domain.address.Address;
 
 public record DTOListDoctor(Long id, String nome, String email, String crm, Specialty especialidade, String phone, Address address) {
 

@@ -1,4 +1,4 @@
-package br.com.waxsolutions.clinicPlatformAPI.address;
+package br.com.waxsolutions.clinicPlatformAPI.domain.address;
 
 import jakarta.persistence.Embeddable;
 import lombok.AllArgsConstructor;

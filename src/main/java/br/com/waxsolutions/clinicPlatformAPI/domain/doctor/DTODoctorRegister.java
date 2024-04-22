@@ -1,21 +1,23 @@
-package br.com.waxsolutions.clinicPlatformAPI.patient;
+package br.com.waxsolutions.clinicPlatformAPI.domain.doctor;
 
-import br.com.waxsolutions.clinicPlatformAPI.address.DataAddress;
+import br.com.waxsolutions.clinicPlatformAPI.domain.address.DataAddress;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 
-public record DTOPatientRegister(
+public record DTODoctorRegister(
         @NotBlank
         String nome,
         @NotBlank
         @Email
         String email,
         @NotBlank
-        String telefone,
+        String numero,
         @NotBlank
-        String cpf,
+        String crm,
+        @NotNull
+        Specialty especialidade,
         @NotNull
         @Valid
         DataAddress endereco

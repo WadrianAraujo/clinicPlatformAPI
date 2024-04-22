@@ -1,4 +1,4 @@
-package br.com.waxsolutions.clinicPlatformAPI.doctor;
+package br.com.waxsolutions.clinicPlatformAPI.domain.doctor;
 
 public enum Specialty {
     ORTOPEDIA,
